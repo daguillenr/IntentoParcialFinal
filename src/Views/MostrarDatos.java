@@ -5,6 +5,10 @@
  */
 package Views;
 
+import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author user
@@ -36,6 +40,11 @@ public class MostrarDatos extends javax.swing.JPanel {
         idLabel.setText("ID:");
 
         mostrarB.setText("Mostrar");
+        mostrarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarBActionPerformed(evt);
+            }
+        });
 
         TablaTrama.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,6 +86,18 @@ public class MostrarDatos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void mostrarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarBActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)TablaTrama.getModel();
+        model.setRowCount(0);
+        ArrayList<Object[]> rows = Control.Gestion.mostrarTramas(Integer.parseInt(mostrarTF.getText()));
+        
+        
+        for (int i = 0; i < rows.size(); i++) {
+            model.addRow(rows.get(i));
+        }
+    }//GEN-LAST:event_mostrarBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TablaTrama;
@@ -85,4 +106,9 @@ public class MostrarDatos extends javax.swing.JPanel {
     private javax.swing.JButton mostrarB;
     private javax.swing.JTextField mostrarTF;
     // End of variables declaration//GEN-END:variables
+    public JTable getTablaTramas() {
+        return TablaTrama;
+    }
+
 }
+

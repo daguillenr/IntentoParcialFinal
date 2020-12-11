@@ -5,6 +5,9 @@
  */
 package Views;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author user
@@ -38,6 +41,11 @@ public class ProcesarDato extends javax.swing.JPanel {
         IDLabel.setText("ID:");
 
         procesarDatoB.setText("Procesar Dato");
+        procesarDatoB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                procesarDatoBActionPerformed(evt);
+            }
+        });
 
         TablaTrama.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,6 +98,36 @@ public class ProcesarDato extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void procesarDatoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procesarDatoBActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)TablaTrama.getModel();
+        model.setRowCount(0);
+        ArrayList<Object[]> rows = Control.Gestion.procesarDato(Integer.parseInt(IDtf.getText()));
+        
+        if(rows.size() != 0){
+            
+            int promedio = 0;
+        
+            for (int i = 0; i < rows.size(); i++) {
+
+                promedio += (int)rows.get(i)[3];
+            }
+
+            promedio = promedio / rows.size();
+            promedioLabel.setText(String.valueOf(promedio));
+            
+        }
+        else{
+            promedioLabel.setText("N/A");
+        }
+        
+        
+        
+        for (int i = 0; i < rows.size(); i++) {
+            model.addRow(rows.get(i));
+        }
+    }//GEN-LAST:event_procesarDatoBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

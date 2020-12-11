@@ -26,8 +26,8 @@ public class Gestion {
         Sensor s = SensorDAO.buscarSensor(i.getId_sensor());
 
         // valor aleatorio permitido
-        int valor_tomado = (int) (Math.random() * (((s.getMax_permitido() + 2) - (s.getMin_permitido() - 2)) + 1)) + s.getMin_permitido();
-        //int valor_tomado = (int) (Math.random() * (((s.getMax_permitido() + 200000000) - (s.getMin_permitido() - 2)) + 1)) + s.getMin_permitido();
+        int valor_tomado = (int) (Math.random() * (((s.getMax_permitido()) - (s.getMin_permitido())) +1 )) + s.getMin_permitido();
+        
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String fecha = LocalDateTime.now().format(formatter);

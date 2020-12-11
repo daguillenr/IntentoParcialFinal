@@ -17,7 +17,7 @@ import javax.persistence.Query;
  * @author user
  */
 public class InstalacionDAO {
-    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("ParcialDB");
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("ParcialFinalPU");
 
     public static boolean insertar(Instalacion instalacion) {
         EntityManager em = emf.createEntityManager();

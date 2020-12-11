@@ -5,6 +5,9 @@
  */
 package Views;
 
+import Model.*;
+import java.time.LocalDateTime;
+
 /**
  *
  * @author user
@@ -34,6 +37,11 @@ public class EnviarDato extends javax.swing.JPanel {
         idLabel.setText("ID:");
 
         enviarB.setText("Enviar");
+        enviarB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviarBActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -59,6 +67,10 @@ public class EnviarDato extends javax.swing.JPanel {
                 .addContainerGap(261, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void enviarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarBActionPerformed
+            Control.Gestion.enviarDato(Integer.parseInt(idTF.getText()));
+    }//GEN-LAST:event_enviarBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

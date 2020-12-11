@@ -18,7 +18,7 @@ import javax.persistence.Query;
  * @author user
  */
 public class TramaDeDatosDAO {
-     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("ParcialDB");
+     private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("ParcialFinalPU");
 
     public static void insertar(TramaDeDatos trama) {
         EntityManager em = emf.createEntityManager();
@@ -53,7 +53,7 @@ public class TramaDeDatosDAO {
         EntityManager em = emf.createEntityManager();
         TramaDeDatos res = null;
         Query q = em
-                .createQuery("SELECT t FROM TramaDatos t " + "WHERE  t.id_instalacion =:id_instalacion ORDER BY t.id_toma DESC")
+                .createQuery("SELECT t FROM TramaDeDatos t " + "WHERE  t.id_instalacion =:id_instalacion ORDER BY t.id_toma DESC")
                 .setParameter("id_instalacion", id_s);
 
         try {
@@ -72,7 +72,7 @@ public class TramaDeDatosDAO {
         EntityManager em = emf.createEntityManager();
         List<TramaDeDatos> res = null;
         Query q = em
-                .createQuery("SELECT t FROM TramaDatos t " + "WHERE t.id_instalacion =:id " + "ORDER BY t.id_toma DESC")
+                .createQuery("SELECT t FROM TramaDeDatos t " + "WHERE t.id_instalacion =:id " + "ORDER BY t.id_toma DESC")
                 .setParameter("id", id_s);
 
         try {
@@ -99,7 +99,7 @@ public class TramaDeDatosDAO {
         EntityManager em = emf.createEntityManager();
         List<TramaDeDatos> res = null;
         Query q = em
-                .createQuery("SELECT t FROM TramaDatos t " + "WHERE  t.fecha_toma LIKE :fecha_toma")
+                .createQuery("SELECT t FROM TramaDeDatos t " + "WHERE  t.fecha_toma LIKE :fecha_toma")
                 .setParameter("fecha_toma", fecha);
         
         try {
