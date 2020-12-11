@@ -56,7 +56,7 @@ public class InstalacionDAO {
                 id_i);
 
         try {
-            res = (Instalacion) q.getSingleResult();
+          res = (Instalacion) q.getSingleResult();
         } catch (NonUniqueResultException e) {
             res = (Instalacion) q.getResultList().get(0);
         } catch (Exception e) {
@@ -88,10 +88,6 @@ public class InstalacionDAO {
         }
     }
 
-    public static ArrayList<Instalacion> leerMultiple() {
-        // TO DO
-        return null;
-    }
 
     public static boolean actualizar(Instalacion s, Instalacion new_s) {
         EntityManager em = emf.createEntityManager();

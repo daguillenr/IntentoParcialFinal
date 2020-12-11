@@ -75,7 +75,7 @@ public class SensorDAO {
         Query q = em.createQuery("SELECT t FROM Sensor t " + "WHERE t.id_sensor = :id").setParameter("id", id_s);
 
         try {
-            res = (Sensor) q.getSingleResult();
+           res = (Sensor) q.getSingleResult();
         } catch (NonUniqueResultException e) {
             res = (Sensor) q.getResultList().get(0);
         } catch (Exception e) {
