@@ -20,7 +20,7 @@ public class TramaDeDatos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_toma;
 
-    private int id_instalacion, valor_tomado;
+    private int valor_tomado,id_instalacion;
     private String fecha_toma;
    
     public TramaDeDatos(int id_instalacion, int valor_tomado, String fecha_toma) {
@@ -30,14 +30,6 @@ public class TramaDeDatos {
     }
 
     public TramaDeDatos() {
-    }
-
-    public int getId_toma() {
-        return id_toma;
-    }
-
-    public void setId_toma(int id_toma) {
-        this.id_toma = id_toma;
     }
 
     public int getId_instalacion() {
@@ -62,6 +54,14 @@ public class TramaDeDatos {
 
     public void setFecha_toma(String fecha_toma) {
         this.fecha_toma = fecha_toma;
+    }
+
+    public int getId_toma() {
+        return id_toma;
+    }
+
+    public void setId_toma(int id_toma) {
+        this.id_toma = id_toma;
     }
     
     

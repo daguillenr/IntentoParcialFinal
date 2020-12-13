@@ -13,7 +13,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "Sensor")
+@Table(name = "Tipo De Sensor")
 public class Sensor {
     
     @Id
@@ -28,14 +28,14 @@ public class Sensor {
     public Sensor() {
     }
     
-    public Sensor(String tipo, String nombre, int min_permitido, int max_permitido, int num_horas, boolean promedio) {
+    public Sensor(String tipo, String nombre, int min_permitido, int max_permitido, boolean promedio, int num_horas) {
         this.tipo = tipo;
         this.nombre = nombre;
         this.min_permitido = min_permitido;
         this.max_permitido = max_permitido;
-        this.num_horas = num_horas;
         this.promedio = promedio;
-    }
+        this.num_horas = num_horas;
+        }
 
     public int getId_sensor() {
         return id_sensor;

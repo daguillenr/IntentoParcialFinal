@@ -56,7 +56,7 @@ public class InstalacionDAO {
                 id_i);
 
         try {
-          res = (Instalacion) q.getSingleResult();
+         res = (Instalacion) q.getSingleResult();
         } catch (NonUniqueResultException e) {
             res = (Instalacion) q.getResultList().get(0);
         } catch (Exception e) {

@@ -65,7 +65,7 @@ public class Gestion {
         return rows;
     }
     
-     public static ArrayList<Object[]> procesarDato(int id_s){
+    public static ArrayList<Object[]> procesarDato(int id_s){
         ArrayList<Object[]> rows = new ArrayList<>();
         ArrayList<TramaDeDatos> datos = new ArrayList<>();
         Instalacion i = InstalacionDAO.buscarInstalacion(id_s);

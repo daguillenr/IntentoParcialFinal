@@ -17,7 +17,7 @@ import javax.persistence.Query;
  * @author user
  */
 public class SensorDAO {
-    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("ParcialFinalPU");
+    private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("IntentoFinal");
     
     public static boolean insertar(Sensor sensor) {
         EntityManager em = emf.createEntityManager();
@@ -49,7 +49,7 @@ public class SensorDAO {
         }
     }
 
-    public static Sensor leerSingle(Sensor sensor) {
+    public Sensor leerUno(Sensor sensor) {
         EntityManager em = emf.createEntityManager();
         Sensor res = null;
         Query q = em
@@ -72,10 +72,10 @@ public class SensorDAO {
     public static Sensor buscarSensor(int id_s) {
         EntityManager em = emf.createEntityManager();
         Sensor res = null;
-        Query q = em.createQuery("SELECT t FROM Sensor t " + "WHERE t.id_sensor = :id").setParameter("id", id_s);
+        Query q = em.createQuery("SELECT s FROM Sensor s " + "WHERE s.id_sensor = :id").setParameter("id", id_s);
 
         try {
-           res = (Sensor) q.getSingleResult();
+          res = (Sensor) q.getSingleResult();
         } catch (NonUniqueResultException e) {
             res = (Sensor) q.getResultList().get(0);
         } catch (Exception e) {
